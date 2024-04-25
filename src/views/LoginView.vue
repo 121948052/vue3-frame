@@ -23,11 +23,11 @@
       </a-form-item>
 
       <a-form-item
-        label="Username"
-        name="username"
-        :rules="[{ required: true, message: 'Please input your username!' }]"
+        label="certifacate"
+        name="certifacate"
+        :rules="[{ required: true, message: 'Please input your certifacate!' }]"
       >
-        <a-input v-model:value="formState.username" />
+        <a-input v-model:value="formState.certifacate" />
       </a-form-item>
 
       <a-form-item
@@ -49,19 +49,32 @@
         <a-button
           type="primary"
           html-type="submit"
-        >Submit</a-button>
+          @click="handleSubmit"
+        >
+          Submit
+        </a-button>
       </a-form-item>
     </a-form>
   </div>
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 const formState = reactive({
-  username: '',
-  password: '',
+  username: 'admin',
+  certifacate: 'admin',
+  password: 'admin12#$',
   remember: true,
 });
+
+const handleSubmit = async () => {
+  router.push('/main')
+};
+
 const onFinish = values => {
   console.log('Success:', values);
 };

@@ -23,11 +23,11 @@
       </a-form-item>
 
       <a-form-item
-        label="certifacate"
-        name="certifacate"
-        :rules="[{ required: true, message: 'Please input your certifacate!' }]"
+        label="Certificate"
+        name="certificate"
+        :rules="[{ required: true, message: 'Please input your certificate!' }]"
       >
-        <a-input v-model:value="formState.certifacate" />
+        <a-input v-model:value="formState.certificate" />
       </a-form-item>
 
       <a-form-item
@@ -61,17 +61,19 @@
 <script setup>
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
+import { useIsLoginStoreHook } from "@/store/modules/global";
 
 const router = useRouter()
 
 const formState = reactive({
   username: 'admin',
-  certifacate: 'admin',
+  certificate: 'admin',
   password: 'admin12#$',
   remember: true,
 });
 
 const handleSubmit = async () => {
+  useIsLoginStoreHook().setIslogin(true)
   router.push('/main')
 };
 

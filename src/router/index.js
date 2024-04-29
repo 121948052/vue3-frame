@@ -1,21 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LoginView from '@/views/LoginView.vue'
-import MainFrameView from '@/views/MainFrame/MainFrameView.vue'
+import { defaultRouter, menuRouter } from '@/router/routers'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'login',
-      component: LoginView
-    },
-    {
-      path: '/main',
-      name: 'mainFrame',
-      component: MainFrameView
-    }
-  ]
+  routes: [...defaultRouter, ...menuRouter]
 })
 
 export default router

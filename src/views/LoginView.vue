@@ -23,14 +23,6 @@
       </a-form-item>
 
       <a-form-item
-        label="Certificate"
-        name="certificate"
-        :rules="[{ required: true, message: 'Please input your certificate!' }]"
-      >
-        <a-input v-model:value="formState.certificate" />
-      </a-form-item>
-
-      <a-form-item
         label="Password"
         name="password"
         :rules="[{ required: true, message: 'Please input your password!' }]"
@@ -67,7 +59,6 @@ const router = useRouter()
 
 const formState = reactive({
   username: 'admin',
-  certificate: 'admin',
   password: 'admin12#$',
   remember: true,
 });
